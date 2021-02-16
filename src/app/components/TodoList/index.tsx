@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
 
 const TodoList = () => {
   return (
@@ -10,14 +9,7 @@ const TodoList = () => {
   );
 };
 
-export default function Stack() {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="タスク一覧" component={TodoList} />
-    </Stack.Navigator>
-  );
-}
+export default TodoList;
 
 const styles = StyleSheet.create({
   container: {

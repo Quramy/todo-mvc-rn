@@ -1,23 +1,27 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React, { useState } from "react";
+import { StyleSheet, Button, View, TextInput } from "react-native";
+import { postTodo } from "../../apiClient";
 
 const AddTodo = () => {
+  const [todoTitle, setTodoTitle] = useState("");
+  const onPressSubmit = async () => {
+    await postTodo({ title: todoTitle });
+    setTodoTitle("");
+  };
   return (
     <View style={styles.container}>
-      <Text>TODO: 追加できるようにする</Text>
+      <TextInput
+        autoFocus
+        value={todoTitle}
+        onChangeText={setTodoTitle}
+        placeholder="ここに何か書いてね"
+      />
+      <Button onPress={onPressSubmit} title="追加する" />
     </View>
   );
 };
 
-export default function Stack() {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="新しいタスク" component={AddTodo} />
-    </Stack.Navigator>
-  );
-}
+export default AddTodo
 
 const styles = StyleSheet.create({
   container: {
