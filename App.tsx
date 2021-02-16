@@ -6,6 +6,7 @@ import { Feather } from "@expo/vector-icons";
 
 import AddTodo from "./src/app/components/AddTodo";
 import TodoList from "./src/app/components/TodoList";
+import EditTodo from "./src/app/components/EditTodo";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,6 +31,7 @@ const ListStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="タスク一覧" component={TodoList} />
+      <Stack.Screen name="タスク編集" component={EditTodo} />
     </Stack.Navigator>
   );
 };

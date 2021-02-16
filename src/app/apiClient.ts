@@ -1,3 +1,5 @@
+import { Task } from "../shared/models/task";
+
 export type PostTodoBody = {
   title: string;
 };
@@ -5,7 +7,7 @@ export type PostTodoBody = {
 export async function postTodo({ title }: PostTodoBody) {
   const body = JSON.stringify({
     status: "todo",
-    title,
+    title
   });
   const res = await fetch("http://localhost:3000/todo", {
     method: "POST",
@@ -15,6 +17,16 @@ export async function postTodo({ title }: PostTodoBody) {
     body
   });
   if (!res.ok) {
-    throw new Error('');
+    throw new Error("");
   }
+}
+
+export async function fetchTodoList() {
+  const res = await fetch("http://localhost:3000/todo", {
+    method: "GET"
+  });
+  if (!res.ok) {
+    throw new Error("");
+  }
+  return (await res.json()) as Task[];
 }
