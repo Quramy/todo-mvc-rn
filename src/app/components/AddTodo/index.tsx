@@ -14,7 +14,7 @@ export default function Stack() {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator>
-      <Stack.Screen name="ホーム" component={AddTodo} />
+      <Stack.Screen name="新しいタスク" component={AddTodo} />
     </Stack.Navigator>
   );
 }
