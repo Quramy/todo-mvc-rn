@@ -1,9 +1,10 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Feather } from "@expo/vector-icons";
+
 import AddTodo from "./src/app/components/AddTodo";
 import TodoList from "./src/app/components/TodoList";
-import { Feather } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 
